@@ -1,0 +1,18 @@
+:host{
+    max-width: 550px;
+    mat-card-header{
+        display: flex;
+        justify-content: space-between;
+        mat-card-actions{
+            padding: 0;
+            mat-icon{
+                padding: 0 3px;
+            }
+        }
+    }
+    mat-card-content{
+        p{
+            word-wrap: break-word;
+        }
+    }
+}

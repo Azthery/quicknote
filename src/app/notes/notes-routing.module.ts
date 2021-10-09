@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
-import { NotesComponent } from '../notes/components/notes/notes.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 const routes: Route[] = [{
     path: '',
@@ -17,4 +17,4 @@ const routes: Route[] = [{
     ]
 })
 
-export class HomeRoutingModule {}
+export class NotesRoutingModule {}
