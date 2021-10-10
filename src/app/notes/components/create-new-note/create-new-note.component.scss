@@ -1,3 +1,44 @@
 :host{
     max-width: 550px;
 }
+.form{
+    .form__header{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        input, input::placeholder, mat-label{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        mat-card-actions{
+            padding-top: 0;
+        }
+        mat-hint{
+            font-size: 14px;
+        }
+    }
+    .form__text{
+        width: 100%;
+        textarea{
+            height: 100px;
+        }
+    }
+    ::ng-deep {
+        .mat-card-header-text{
+            display: none;
+        }
+        .mat-form-field-flex{
+            padding: 0;
+        }
+        .mat-form-field-infix{
+            border: 0;
+        }
+        // .form__header__title{
+        //     .mat-form-field-label{
+        //         font-weight: 500;
+        //         font-size: 18px;
+        //     }
+        // }
+    }
+}

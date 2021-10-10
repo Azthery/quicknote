@@ -1,18 +1,29 @@
 :host{
     max-width: 550px;
+    mat-card{
+        // border-top: .84375em solid transparent;
+        // border-top: 7px solid transparent;
+        border-bottom: .84375em solid transparent;
+    }
     mat-card-header{
         display: flex;
         justify-content: space-between;
+        // border-top: .84375em solid transparent;
         mat-card-actions{
             padding: 0;
             mat-icon{
                 padding: 0 3px;
             }
         }
+        mat-card-title{
+            padding-top: 7px;
+        }
     }
     mat-card-content{
         p{
             word-wrap: break-word;
         }
+        // border-bottom: .84375em solid transparent;
     }
 }
+

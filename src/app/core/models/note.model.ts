@@ -1,6 +1,6 @@
 export interface note{
     title: string,
     text: string,
-    date: string,
+    date: number,
     id: number
 }

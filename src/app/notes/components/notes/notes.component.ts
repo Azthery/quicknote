@@ -17,8 +17,7 @@ export class NotesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.notes = this.noteService.notes
-    console.log(this.notes)
+    this.notes = this.noteService.notes;
   }
 
 }
