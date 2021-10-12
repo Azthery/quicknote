@@ -1,11 +1,11 @@
 <mat-card class="note">
     <mat-card-header>
-            <mat-card-title>{{note.title}}</mat-card-title>
+            <mat-card-title>{{note.title}} ID:{{note.id}}</mat-card-title>
             <mat-card-actions>
                 <button mat-icon-button>
                     <mat-icon>create</mat-icon>
                 </button>
-                <button mat-icon-button>
+                <button mat-icon-button (click)="removeThisNote()">
                     <mat-icon>clear</mat-icon>
                 </button>
             </mat-card-actions>

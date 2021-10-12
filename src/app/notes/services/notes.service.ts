@@ -12,16 +12,25 @@ export class NotesService {
     this.notes.push(newNote);
   }
 
+  removeNote(id:number): void{
+    let newId = 0;
+    this.notes.splice(id, 1);
+    this.notes.forEach((el) =>{
+      el.id = newId;
+      newId++;
+    })
+  }
+
   constructor() {
     this.notes = [
       {
         title: 'Nota 1',
         text: 'Soy un teeexto jejejejeje y ahora tengo que rellenar para agregar mas texto oeoeoe aaaahh',
         date: 1633839182011,
-        id: 1
+        id: 0
       },
       {
-        title: 'Nota 1',
+        title: 'Nota 2',
         text: 'Soy un teeexto jejejejeje y ahora tengo que rellenar para agregar mas texto oeoeoe aaaahh',
         date: 1633839182011,
         id: 1
@@ -30,13 +39,13 @@ export class NotesService {
         title: 'Nota 3',
         text: 'Hoy tengo muchas ganas de comer un kuchen, aun que sea de sarten aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
         date: 1633839182011,
-        id: 3
+        id: 2
       },
       {
-        title: 'Nota 2',
+        title: 'Nota 4',
         text: 'Texto texto texto!! owo',
         date: 1633839182011,
-        id: 2
+        id: 3
       },
     ]
    }
