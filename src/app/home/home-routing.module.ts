@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
-import { NotesComponent } from '../notes/components/notes/notes.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Route[] = [{
     path: '',
-    component: NotesComponent
+    component: HomeComponent
 }];
 
 @NgModule({

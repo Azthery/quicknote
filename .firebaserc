@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "quicked": {
+      "hosting": {
+        "quicknote": [
+          "quicked"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "quicked"
+  }
+}

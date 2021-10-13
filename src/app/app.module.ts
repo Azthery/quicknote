@@ -11,10 +11,11 @@ import { PruebaComponent } from './prueba/prueba.component';
 
 import { MaterialModule } from './material/material.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
