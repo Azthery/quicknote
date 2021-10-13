@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+
+import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-import { HeaderComponent } from './shared/component/header/header.component';
-import { FooterComponent } from './shared/component/footer/footer.component';
 import { PruebaComponent } from './prueba/prueba.component';
 
-import { MaterialModule } from './material/material.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -20,8 +21,6 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
   declarations: [
     AppComponent,
     LayoutComponent,
-    HeaderComponent,
-    FooterComponent,
     PruebaComponent,
   ],
   imports: [
@@ -32,7 +31,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

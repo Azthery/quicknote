@@ -3,10 +3,12 @@ import { Route, RouterModule } from '@angular/router';
 
 import { NotesComponent } from './components/notes/notes.component';
 
-const routes: Route[] = [{
+const routes: Route[] = [
+    {
     path: '',
     component: NotesComponent
-}];
+    }
+];
 
 @NgModule({
     imports: [
