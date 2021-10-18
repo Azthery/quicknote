@@ -1,28 +1,42 @@
-<form [formGroup]="form">
-    <mat-card color="warn">
+<form [formGroup]="form" class="login">
+    <mat-card>
     
         <mat-card-header>
             <mat-card-title>Login</mat-card-title>
         </mat-card-header>
     
-        <mat-card-content>
+        <mat-card-content class="login__content">
             <mat-form-field>
-                <input placeholder="Email" matInput type="email">
+                <input formControlName="email" placeholder="Email" matInput type="email">
             </mat-form-field> 
             <mat-form-field>
-                <input placeholder="Password" matInput type="password">
+                <input formControlName="password" placeholder="Password" matInput type="password">
             </mat-form-field>
-            
+            <div class="login__content__wrong">
+                <span *ngIf="wrongData">Wrong email or password</span>
+            </div>
             <mat-card-actions class="row middle-xs">
     
-                <div>
+                <div class="login__actions__options">
+                    <mat-checkbox >Remember me</mat-checkbox>
                     <a routerLink="">Forgot password?</a>
-                    <input type="checkbox" name="" id="">
-                    <p>Remember me</p>
                 </div>
                 
-                <button [disabled]="form.invalid" (click)="login($event)" mat-raised-button color="primary" type="submit" class="button--login">Login</button>
-                <a routerLink="/register">Sign up</a>
+                <div class="login__actions__buttons">
+                    <button
+                    [disabled]="form.invalid" 
+                    (click)="login($event)" 
+                    mat-raised-button 
+                    color="primary" 
+                    type="submit" 
+                    class="button--login">
+                        Login
+                    </button>
+                    <br>
+                    <a routerLink="/register">
+                        or Sign up
+                    </a>
+                </div>
     
             </mat-card-actions>
     

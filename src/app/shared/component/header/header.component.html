@@ -1,6 +1,18 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button  aria-label="menu-icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Quick Note</span>
+<mat-toolbar color="primary" class="header">
+    <div>
+      <button mat-icon-button  aria-label="menu-icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button mat-button routerLink="/home">
+        <span class="header--title">Quick Note</span>
+      </button>
+      <a routerLinkActive="active" routerLink="/notes" mat-button color="basic">Notes</a>
+    </div>
+
+    <span class="header--spacer"></span>
+    
+    <div>
+      <a routerLinkActive="active" routerLink="/login" mat-button color="basic">Login</a>
+      <a routerLinkActive="active" routerLink="/register" mat-button color="accent">Register</a>
+    </div>
 </mat-toolbar>
