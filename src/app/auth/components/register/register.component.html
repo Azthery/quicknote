@@ -9,25 +9,31 @@
 
             <mat-form-field class="register__content--email">
                 <input formControlName="email" placeholder="Email" matInput type="email">
-                <mat-error *ngIf="form.hasError('email') && !form.hasError('required')">
-                    Please enter a valid email address
+                <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+                    Please enter a <strong>valid</strong> email address
                 </mat-error>
-                <mat-error *ngIf="form.hasError('required')">
+                <mat-error *ngIf="(form.controls.email.value == '') && form.controls.email.touched">
                     Email is <strong>required</strong>
                 </mat-error>
-            </mat-form-field> 
-            
+            </mat-form-field>
+
             <mat-form-field class="register__content--password">
                 <input formControlName="password" placeholder="Password" matInput type="password" [type]="hide ? 'password' : 'text'">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>
                         {{hide ? 'visibility_off' : 'visibility'}}
                     </mat-icon>
-                  </button>
+                </button>
+                <mat-error *ngIf="form.controls.password.hasError('minlength') || form.controls.password.touched">
+                    The password is too <strong>short</strong>
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field class="register__content--confirmpass">
                 <input formControlName="confirmPass" placeholder="Confirm Password" matInput type="password" [type]="hide ? 'password' : 'text'">
+                <mat-error *ngIf="!form.controls.email.hasError('pattern')">
+                    Password does not match
+                </mat-error>
             </mat-form-field>
             
             <mat-card-actions class="row middle-xs">
@@ -50,11 +56,11 @@
                         Create account
                     </button>
                     <hr>
-                    <a routerLink="/login">
+                    <a routerLink="/terms-and-conditions">
                         or Sign in
                     </a>
                 </div>
-    
+
             </mat-card-actions>
     
         </mat-card-content>

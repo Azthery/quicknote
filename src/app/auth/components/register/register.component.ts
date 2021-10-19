@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@core/services/auth/auth.service';
@@ -12,8 +12,8 @@ import { AuthService } from '@core/services/auth/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup = this.buildForm();
-  hide = true;
+  public form: FormGroup = this.buildForm();
+  public hide = true;
 
   constructor(
     private authService: AuthService,
@@ -21,30 +21,34 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) { }
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {
+    this.refreshValidatorConfirmPass();
+  }
+  
   buildForm(email?: string | ''): FormGroup{
     return this.formBuilder.group({
       email: [email, [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPass: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPass: [''],
       terms: [false, Validators.requiredTrue]
     })
   }
 
   register(event: Event): void{
     event.preventDefault();
-    const value = this.form.value;
-
-    console.log(this.form.value);
-    if(this.form.valid && (value.email === value.repeatpassword)){
-
+    if(this.form.valid){
+      const value = this.form.value;
       this.authService.createUser(value.email, value.password)
         .then(() => this.router.navigate(['/login']))
-        .catch((err: any) => console.error(err))
-    } else{
-      
+        .catch((err: any) => console.error(err));
     }
   }
 
+  refreshValidatorConfirmPass(): void{
+    this.form.controls['password'].valueChanges.subscribe( password =>{
+      this.form.get("confirmPass")?.setValidators(
+        [Validators.required, Validators.pattern(password)]
+      );
+    });
+  }
 }
