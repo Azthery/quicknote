@@ -21,7 +21,6 @@ import { environment } from '../../environments/environment';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    AngularFireAuth,
     AngularFireModule,
     AngularFirestoreModule,
   ],
