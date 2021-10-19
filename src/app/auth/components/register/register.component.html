@@ -1,0 +1,69 @@
+<form [formGroup]="form" class="register">
+    <mat-card>
+    
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+    
+        <mat-card-content class="register__content">
+
+            <mat-form-field class="register__content--email">
+                <input formControlName="email" placeholder="Email" matInput type="email">
+                <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+                    Please enter a <strong>valid</strong> email address
+                </mat-error>
+                <mat-error *ngIf="(form.controls.email.value == '') && form.controls.email.touched">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="register__content--password">
+                <input formControlName="password" placeholder="Password" matInput type="password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                </button>
+                <mat-error *ngIf="form.controls.password.hasError('minlength') || form.controls.password.touched">
+                    The password is too <strong>short</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="register__content--confirmpass">
+                <input formControlName="confirmPass" placeholder="Confirm Password" matInput type="password" [type]="hide ? 'password' : 'text'">
+                <mat-error *ngIf="!form.controls.email.hasError('pattern')">
+                    Password does not match
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-card-actions class="row middle-xs">
+    
+                <div class="register__actions__options">
+                    <mat-checkbox formControlName="terms">
+                        I've read and agree to
+                        <a color="warn" routerLink="/terms-and-conditions">Terms and Conditions</a>
+                    </mat-checkbox>
+                </div>
+                
+                <div class="register__actions__buttons">
+                    <button
+                    [disabled]="form.invalid" 
+                    (click)="register($event)" 
+                    mat-raised-button 
+                    color="primary" 
+                    type="submit" 
+                    class="register__actions__buttons--submit">
+                        Create account
+                    </button>
+                    <hr>
+                    <a routerLink="/terms-and-conditions">
+                        or Sign in
+                    </a>
+                </div>
+
+            </mat-card-actions>
+    
+        </mat-card-content>
+    
+    </mat-card>
+</form>

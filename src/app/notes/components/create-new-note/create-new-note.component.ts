@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { timer } from 'rxjs';
 import { note } from 'src/app/core/models/note.model';
-import { NotesService } from '../../services/notes.service';
+import { NotesService } from 'src/app/core/services/note/notes.service';
 
 @Component({
   selector: 'app-create-new-note',
